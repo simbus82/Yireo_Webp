@@ -117,9 +117,13 @@ class Yireo_Webp_Helper_Data extends Mage_Core_Helper_Abstract
     protected function isChromeBrowser()
     {
         /** @var Mage_Core_Helper_Http $httpHelper */
-        $httpHelper = Mage::helper('core/http');
+        /*$httpHelper = Mage::helper('core/http');
         $browser = $httpHelper->getHttpUserAgent();
         if (preg_match('/Chrome\/(9|10|11|12|13|14|15|16)/', $browser)) {
+            return true;
+        }*/
+        
+        if( strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false ) {    
             return true;
         }
 
